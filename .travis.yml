@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "node"
+install:
+  - npm cache clean -f
+  - npm install
+  - npm run build
+script:
+  - npm test

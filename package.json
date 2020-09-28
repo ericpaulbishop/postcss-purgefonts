@@ -1,0 +1,78 @@
+{
+  "name": "postcss-purgefonts",
+  "version": "1.0.0",
+  "description": "PostCSS plugin PurgeFonts to minimize the size of font files by removing unused font glyphs from fonts, especially icon fonts such as FontAwesome",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "purgefonts",
+    "glyph",
+    "glyphs",
+    "font",
+    "fonts",
+    "icon",
+    "font-face",
+    "fontface",
+    "webfont",
+    "web-font",
+    "iconfont",
+    "icon-font",
+    "minify",
+    "compress"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib",
+    "lint": "eslint ./src",
+    "test": "nyc ava --timeout=3m --verbose "
+  },
+  "author": "Eric P Bishop <ericpaulbishop@gmail.com>",
+  "license": "MIT",
+  "repository": "github:ericpaulbishop/postcss-purgefonts",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "postcss": "^7.0.32",
+    "fonteditor-core": "^2.1.2",
+    "hasha": "^5.2.0",
+    "otf2svg": "^1.0.2",
+    "glob": "^7.1.6",
+    "got": "^11.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "ava": "^3.12.1",
+    "eslint": "^7.6.0",
+    "eslint-ci": "^1.0.0",
+    "lint-staged": "^10.2.11",
+    "nyc": "^15.1.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-empty": [
+        "error",
+        {
+          "allowEmptyCatch": true
+        }
+      ]
+    }
+  }
+}
