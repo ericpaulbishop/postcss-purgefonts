@@ -1,4 +1,4 @@
-# PostCSS Purgeglyphs
+# PostCSS PurgeFonts
 
 
 [![NPM version][npm-image]][npm-url]
@@ -125,19 +125,26 @@ List of characters and/or integers (unicode code points) to preserve when compre
 
 **`content (default=[])`**:
 
-Example: `[ {'scan_type': 'html_escaped', 'files':['test/test_assets/**/*.html']}, {'scan_type': 'unescaped', min: 0xff, max:0xffff 'files':['test/test_assets/**/*.html', 'test/test_assets/**/*.txt']}   ]`
+Example: 
+```js
+[ 
+  {'scan_type': 'html_escaped', 'files':['test/test_assets/**/*.html']}, 
+  {'scan_type': 'unescaped', min: 0xff, max:0xffff 'files':['test/test_assets/**/*.html', 'test/test_assets/**/*.txt']}   
 
-The content property should be defind as a list of objects, each of which *must* have the `files` attribute defined, with the `scan\_type`, `min`, and `max` variables optional.
+]
+```
+
+The content property should be defind as a list of objects, each of which *must* have the `files` attribute defined, with the `scan_type`, `min`, and `max` variables optional.
 
 Each entry represents a set of files to be scanned for unicode characters, which match any of the glob expressions defined in the `files` attribute list.
 
 `files`: A list of "glob" strings to identify files to scan
 
-`scan\_type (default='unescaped')`: This can be 'unescaped' or 'html\_escaped' and indicates whether to scan bare characters ('unescaped') or in the format of an html defined unicode codepoint e.g. '&#xf007;' or '&#62198;' ('html\_escaped')
+`scan_type (default='unescaped')`: This can be 'unescaped' or 'html\_escaped' and indicates whether to scan bare characters ('unescaped') or in the format of an html defined unicode codepoint e.g. '&\#xf007;' or '&\#62198;' ('html\_escaped')
 
-`min`: An integer, the minimum, inclusive, unicode code point to include if seen. Characters/Code Points below this value will be ignored unless they are found in a different scan, in a CSS content property or in the `preserve\_glyphs` list.
+`min`: An integer, the minimum, inclusive, unicode code point to include if seen. Characters/Code Points below this value will be ignored unless they are found in a different scan, in a CSS content property or in the `preserve_glyphs` list.
 
-`max`: An integer, the maximum, inclusive, unicode code point to include if seen. Characters/Code Points above this value will be ignored unless they are found in a different scan, in a CSS content property or in the `preserve\_glyphs` list.
+`max`: An integer, the maximum, inclusive, unicode code point to include if seen. Characters/Code Points above this value will be ignored unless they are found in a different scan, in a CSS content property or in the `preserve_glyphs` list.
 
 
 **`cache_busting (default='file')`**: 
