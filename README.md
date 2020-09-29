@@ -129,7 +129,7 @@ Example:
 ```js
 [ 
   {'scan_type': 'html_escaped', 'files':['test/test_assets/**/*.html']}, 
-  {'scan_type': 'unescaped', min: 0xff, max:0xffff 'files':['test/test_assets/**/*.html', 'test/test_assets/**/*.txt']}   
+  {'scan_type': 'unescaped', 'min': 0xff, 'max': 0xffff, 'files':['test/test_assets/**/*.html', 'test/test_assets/**/*.txt']}   
 
 ]
 ```
