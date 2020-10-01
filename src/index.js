@@ -358,18 +358,6 @@ async function convertFromTruetype(srcPath, destPath, destFormat) {
     debugLog("converting to " + destFormat);
   
     if(convertModule == 'woff2') {
- 
-      // when converting woff2 there's console output
-      // temporarily redirect stdout/err so we don't have this
-      try {
-        oldStdoutWrite = process.stdout.write
-        process.stdout.write = function() {}
-      } catch(err){  }
-      try {
-        oldStderrWrite = process.stderr.write
-        process.stderr.write = function() {}
-      } catch(err){   }
-      
       await fonteditor.woff2.init();
     }
   
@@ -380,15 +368,6 @@ async function convertFromTruetype(srcPath, destPath, destFormat) {
     
   } catch(err) {
     outputErr = "FONTEDITOR-CORE ERROR CONVERTING TTF TO [format: " + destFormat + ", file: " + destPath + "] :\n" + err 
-  }
-
-  
-  if(oldStdoutWrite != null || oldStderrWrite != null) {
-    process.stdout.read();
-    process.stderr.read();
-    await sleep(1); //I'm not sure why, but unless we wait a millisecond, we get output
-    try { process.stdout.write = oldStdoutWrite } catch(err){}
-    try { process.stderr.write = oldStderrWrite } catch(err){}
   }
   
   if(outputErr) {
