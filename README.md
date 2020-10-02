@@ -88,24 +88,27 @@ want to run this plugin *after* purgecss, so the unused font styles have already
 keep the glyphs you use.
 
 ```diff
-module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('autoprefixer'),
-    require('postcss-purgecss')({
-      content: ['./public/**/*.html'],
-      fontFace: true,
-      defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-    }),
-+   require('postcss-purgefonts')( {
-+         'purge_only_fonts': ['Font Awesome 5 Free', 'Font Awesome 5 Brands']
-+   })
-
-  ]
-}
+ module.exports = {
+   plugins: [
+     require('postcss-import'),
+     require('autoprefixer'),
+     require('postcss-purgecss')({
+       content: ['./public/**/*.html'],
+       fontFace: true,
+       defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
++    }),
++    require('postcss-purgefonts')( {
++      'purge_only_fonts': ['Font Awesome 5 Free', 'Font Awesome 5 Brands']
+     })
+   ]
+ }
 ```
 
 ## Options
+
+**`to (default='fonts/')`**:
+
+If this is specified, this is the output directory for font files created by this plugin. If this is not an absolute path, the output path will be relative to the CSS output directory. If unspecified, the output directory for fonts will be the fonts sub-directory.
 
 **`purge_only_fonts (default=[])`**: 
 
