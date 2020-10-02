@@ -1,6 +1,6 @@
 {
   "name": "postcss-purgefonts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostCSS plugin PurgeFonts to minimize the size of font files by removing unused font glyphs from fonts, especially icon fonts such as FontAwesome",
   "keywords": [
     "postcss",
@@ -19,7 +19,8 @@
     "iconfont",
     "icon-font",
     "minify",
-    "compress"
+    "compress",
+    "fontmin"
   ],
   "main": "./lib/index.js",
   "scripts": {
